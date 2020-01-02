@@ -1,0 +1,206 @@
+:root {
+  /* palette http://colorschemedesigner.com/csd-3.5/#3m31Oh1oow0wt */
+  --bg-color: white;
+  --bg-body: #3a6e78;
+  --bg-bodyComp: #37545a;
+  --yellow: #c29f5b;
+  --yellow-pale: #927e58;
+  --red: #c26f5b;
+  --red-pale: #926358;
+  --white: #e1ded3;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+button, #submitButt {
+  /* reset button */
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  /* style */
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  background-color: #bac7a7;
+  transition: all 0.1s;
+}
+button:active, #submitButt:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: Roboto;
+  background-color: #e5e4cc;
+}
+
+header {
+  text-align: center;
+  margin: 5vh auto 12vh auto;
+}
+header h1 {
+  margin: auto 10vw auto 10vw;
+  font-size: 3em;
+  letter-spacing: 5vw;
+  font-weight: bold;
+  color: var(--white);
+  text-shadow: 0 1px 3px var(--bg-bodyComp);
+  text-align: right;
+  line-height: 10vh;
+}
+
+#show-form {
+  position: fixed;
+  z-index: 7;
+  top: 7vh;
+  right: 1vw;
+  cursor: copy;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+  color: #871a1a;
+}
+#show-form:active {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input:not([type=submit]) {
+  width: 80%;
+}
+
+#submitButt,
+#close-form,
+select,
+input[name=pages] {
+  width: 50%;
+}
+
+.modal-back {
+  display: none;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  z-index: 3;
+  transition: all 1s;
+}
+
+.modal-form {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 5;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40vh;
+  width: 30vw;
+  transition: all 1s;
+}
+.modal-form .form-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1vh solid #e1ecef;
+  border-right: 2vh solid black;
+  box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+.modal-form .form-action-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1vh solid #e1ecef;
+  border-left: 2vh solid black;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.open {
+  display: grid;
+}
+
+.not-read {
+  background-color: firebrick;
+}
+.not-read::before {
+  content: "Not read";
+}
+.not-read.read {
+  background-color: #bac7a7;
+}
+.not-read.read::before {
+  content: "Read";
+}
+
+.buttonRemove::before {
+  content: "Remove";
+}
+
+#bookList {
+  width: 90vw;
+  margin: 10vh auto 10vh auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  transition: transform 1s;
+  /* grid-template-columns:  repeat( auto-fit, minmax(150px, 1fr) ); */
+}
+
+.book-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2vh 2vw 2vh 2vw;
+}
+
+.action-list, .modal-form .form-action-list {
+  background-color: #889e81;
+  transform: skewY(30deg);
+  border-radius: 5px;
+  border: 0.5vh solid #e1ecef;
+  border-left: 1vh solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.details, .modal-form .form-details {
+  background-color: #bac7a7;
+  color: #787f84;
+  transform: skewY(-30deg);
+  border-radius: 5px;
+  border: 0.5vh solid #e1ecef;
+  border-right: 1vh solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+  box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+.details h3, .modal-form .form-details h3 {
+  font-style: italic;
+  text-transform: capitalize;
+  color: #787f84;
+}
+.details h5, .modal-form .form-details h5 {
+  text-transform: capitalize;
+}
+
+/*# sourceMappingURL=processed.css.map */

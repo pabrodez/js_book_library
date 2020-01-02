@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+    <link href="styles/processed.css" rel="stylesheet">
+    <style>
+    </style>
+  </head>
+  
+  <body>
+  
+    <header>
+      <h1>Personal<br>library</h1>
+      <i id="show-form" class="material-icons">
+  library_add
+  </i></button>
+    </header>
+  
+    <div class="modal-back"></div>
+  
+    <form method="post" action="javascript:void(0);" class="modal-form" data-book="">
+      <div class="form-details">
+        <label for="title">Title</label>
+        <input name="title" type="text" required>
+  
+        <label for="author">Author</label>
+        <input name="author" type="text" required>
+  
+        <label for="pages">Pages</label>
+        <input name="pages" type="number" required>
+  
+        <label for="read" for="title">Read?</label>
+        <select name="read" type="select" required>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+      </div>
+  
+      <div class="form-action-list">
+        <input type="submit" value="Submit" id="submitButt">
+  
+        <button type="button" id="close-form">Close</button>
+      </div>
+  
+    </form>
+  
+    <ul id="bookList">
+  
+    </ul>
+  
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="scripts/script.js"></script>
+  </body>
+  
+</html>
