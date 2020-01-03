@@ -33,8 +33,8 @@ button:active, #submitButt:active {
 }
 
 body {
-  font-family: Roboto;
   background-color: #e5e4cc;
+  overflow-y: scroll;
 }
 
 header {
@@ -152,10 +152,10 @@ input[name=pages] {
 }
 
 #bookList {
-  width: 90vw;
+  width: 75vw;
   margin: 10vh auto 10vh auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
   transition: transform 1s;
   /* grid-template-columns:  repeat( auto-fit, minmax(150px, 1fr) ); */
 }
@@ -165,10 +165,21 @@ input[name=pages] {
   grid-template-columns: repeat(2, 1fr);
   margin: 2vh 2vw 2vh 2vw;
 }
+.book-box:not(:hover) .action-list, .book-box:not(:hover) .modal-form .form-action-list, .modal-form .book-box:not(:hover) .form-action-list {
+  transform: scaleY(0);
+}
+.book-box:not(:hover) .details, .book-box:not(:hover) .modal-form .form-details, .modal-form .book-box:not(:hover) .form-details {
+  transform: skewY(0) translateX(50%);
+  z-index: 2;
+  max-height: 4vh;
+}
+.book-box:not(:hover) .details h5, .book-box:not(:hover) .modal-form .form-details h5, .modal-form .book-box:not(:hover) .form-details h5, .book-box:not(:hover) .details p, .book-box:not(:hover) .modal-form .form-details p, .modal-form .book-box:not(:hover) .form-details p {
+  display: none;
+}
 
 .action-list, .modal-form .form-action-list {
   background-color: #889e81;
-  transform: skewY(30deg);
+  transform: skewY(20deg);
   border-radius: 5px;
   border: 0.5vh solid #e1ecef;
   border-left: 1vh solid black;
@@ -183,7 +194,7 @@ input[name=pages] {
 .details, .modal-form .form-details {
   background-color: #bac7a7;
   color: #787f84;
-  transform: skewY(-30deg);
+  transform: skewY(-20deg);
   border-radius: 5px;
   border: 0.5vh solid #e1ecef;
   border-right: 1vh solid black;
@@ -193,11 +204,13 @@ input[name=pages] {
   align-items: center;
   padding: 5%;
   box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
 }
 .details h3, .modal-form .form-details h3 {
   font-style: italic;
   text-transform: capitalize;
   color: #787f84;
+  font-family: "Josefin Sans", sans-serif;
 }
 .details h5, .modal-form .form-details h5 {
   text-transform: capitalize;

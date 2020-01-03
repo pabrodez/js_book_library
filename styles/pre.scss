@@ -39,8 +39,8 @@ button {
 }
 
 body {
-  font-family: Roboto;
   background-color: #e5e4cc;
+  overflow-y: scroll;
 }
 
 header {
@@ -176,10 +176,10 @@ input[name="pages"] {
 }
 
 #bookList {
-  width: 90vw;
+  width: 75vw;
   margin: 10vh auto 10vh auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
   transition: transform 1s;
   /* grid-template-columns:  repeat( auto-fit, minmax(150px, 1fr) ); */
 }
@@ -188,11 +188,29 @@ input[name="pages"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 2vh 2vw 2vh 2vw;
+  
+  &:not(:hover) {    
+    
+    .action-list {
+      transform: scaleY(0);
+    }
+    
+    .details {
+      transform: skewY(0) translateX(50%);
+      z-index: 2;
+      max-height: 4vh;
+      
+      h5, p {
+        display: none;
+      }
+    }
+    
+  }
 }
 
 .action-list {
   background-color: #889e81;
-  transform: skewY(30deg);
+  transform: skewY(20deg);
   border-radius: 5px;
   border: 0.5vh solid #e1ecef;
   border-left: 1vh solid black;
@@ -207,7 +225,7 @@ input[name="pages"] {
 .details {
   background-color: #bac7a7;
   color: #787f84;
-  transform: skewY(-30deg);
+  transform: skewY(-20deg);
   border-radius: 5px;
   border: 0.5vh solid #e1ecef;
   border-right: 1vh solid black;
@@ -217,11 +235,13 @@ input[name="pages"] {
   align-items: center;
   padding: 5%;
   box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
 
   h3 {
     font-style: italic;
     text-transform: capitalize;
     color: #787f84;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   h5 {
